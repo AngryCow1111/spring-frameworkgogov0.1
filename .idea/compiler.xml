@@ -7,9 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ioc-overview" />
+        <module name="bean-lifecycle" />
+        <module name="common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bean-lifecycle" target="6" />
+      <module name="common" target="1.5" />
       <module name="ioc-overview" target="1.5" />
       <module name="spring-framework-gogov0.1" target="1.5" />
     </bytecodeTargetLevel>

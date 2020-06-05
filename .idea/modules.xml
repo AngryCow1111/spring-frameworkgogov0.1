@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/bean-lifecycle/bean-lifecycle.iml" filepath="$PROJECT_DIR$/bean-lifecycle/bean-lifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/ioc-overview/ioc-overview.iml" filepath="$PROJECT_DIR$/ioc-overview/ioc-overview.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-framework-gogov0.1.iml" filepath="$PROJECT_DIR$/.idea/spring-framework-gogov0.1.iml" />
     </modules>
