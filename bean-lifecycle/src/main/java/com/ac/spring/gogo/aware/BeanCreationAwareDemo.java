@@ -23,6 +23,7 @@ public class BeanCreationAwareDemo {
         //关闭上下文
         classPathXmlApplicationContext.close();
 
+
         // AbstractApplicationContext->conversionService->BeanFactory->//
         // BeanWrapperImpl->PropertyValues->BeanDefinition#setPropertyValues->BeanDefinition->ConstructorResolver->BeanFactory->BeanWrapperImpl
     }
