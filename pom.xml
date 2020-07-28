@@ -13,6 +13,8 @@
         <module>common</module>
         <module>spring-netty</module>
         <module>design-model</module>
+        <module>data-binding</module>
+        <module>trytry</module>
     </modules>
     <packaging>pom</packaging>
 

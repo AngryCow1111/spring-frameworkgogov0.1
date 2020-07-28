@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bean-lifecycle</artifactId>
-
+    <artifactId>data-binding</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.ac.spring</groupId>
