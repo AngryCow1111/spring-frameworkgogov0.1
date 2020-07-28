@@ -11,6 +11,8 @@
         <module>ioc-overview</module>
         <module>bean-lifecycle</module>
         <module>common</module>
+        <module>spring-netty</module>
+        <module>design-model</module>
     </modules>
     <packaging>pom</packaging>
 
