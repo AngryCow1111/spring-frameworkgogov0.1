@@ -4,10 +4,12 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/bean-lifecycle/bean-lifecycle.iml" filepath="$PROJECT_DIR$/bean-lifecycle/bean-lifecycle.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/data-binding/data-binding.iml" filepath="$PROJECT_DIR$/data-binding/data-binding.iml" />
       <module fileurl="file://$PROJECT_DIR$/design-model/design-model.iml" filepath="$PROJECT_DIR$/design-model/design-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/ioc-overview/ioc-overview.iml" filepath="$PROJECT_DIR$/ioc-overview/ioc-overview.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-framework-gogov0.1.iml" filepath="$PROJECT_DIR$/.idea/spring-framework-gogov0.1.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-netty/spring-netty.iml" filepath="$PROJECT_DIR$/spring-netty/spring-netty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trytry/trytry.iml" filepath="$PROJECT_DIR$/trytry/trytry.iml" />
     </modules>
   </component>
 </project>

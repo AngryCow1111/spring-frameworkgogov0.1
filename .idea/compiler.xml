@@ -6,20 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="design-model" />
+        <module name="trytry" />
+        <module name="common" />
         <module name="ioc-overview" />
         <module name="bean-lifecycle" />
-        <module name="common" />
+        <module name="data-binding" />
+        <module name="design-model" />
         <module name="spring-netty" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="bean-lifecycle" target="6" />
-      <module name="common" target="1.5" />
-      <module name="design-model" target="1.5" />
-      <module name="ioc-overview" target="1.5" />
-      <module name="spring-framework-gogov0.1" target="1.5" />
-      <module name="spring-netty" target="1.5" />
+    <bytecodeTargetLevel target="8">
+      <module name="bean-lifecycle" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="data-binding" target="1.8" />
+      <module name="design-model" target="1.8" />
+      <module name="ioc-overview" target="1.8" />
+      <module name="spring-framework-gogov0.1" target="1.8" />
+      <module name="spring-netty" target="1.8" />
+      <module name="trytry" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -9,5 +9,6 @@ package com.ac.spring.gogo;
 public interface HandlerHolder {
 
     HandlerHolder addHandler(Handler handler);
+
     void invoke();
 }

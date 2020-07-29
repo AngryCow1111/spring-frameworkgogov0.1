@@ -9,14 +9,7 @@ package com.ac.spring.gogo;
 public class HandlerDemo {
     public static void main(String[] args) {
         HandlerHolder handlerHolder = new DefaultHandlerHolder();
-        handlerHolder.addHandler(new Handler() {
-            public void doHandle() {
-                System.out.println("doHandle1");
-            }
-        }).addHandler(new Handler() {
-            public void doHandle() {
-                System.out.println("doHandle1");
-            }
-        }).invoke();
+        handlerHolder.addHandler(() -> System.out.println("doHandle1"))
+                .addHandler(() -> System.out.println("doHandle2")).invoke();
     }
 }
