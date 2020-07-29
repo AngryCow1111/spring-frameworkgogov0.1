@@ -7,5 +7,5 @@ package com.ac.spring.gogo;
  * @since 2020/7/28
  */
 public interface HandlerInvoker {
-    void invoke(HandlerHolder handlerHolder);
+    void invoke(Handler handler);
 }

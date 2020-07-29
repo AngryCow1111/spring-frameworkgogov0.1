@@ -21,7 +21,9 @@ public class DefaultHandlerHolder implements HandlerHolder {
 
     public void invoke() {
         for (Handler handler : handlerList) {
-            handler.doHandle();
+            HandlerInvoker handlerInvoker = handler1 -> handler1.doHandle();
+            handlerInvoker.invoke(handler);
+
         }
     }
 
