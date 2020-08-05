@@ -77,6 +77,9 @@ public class Test1 {
                 total = 0;
             }
             if (i >= nums.length) {
+                if (max < total) {
+                    max = total;
+                }
                 return max;
             }
         }
