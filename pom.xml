@@ -15,6 +15,7 @@
         <module>design-model</module>
         <module>data-binding</module>
         <module>trytry</module>
+        <module>algorithm-try</module>
     </modules>
     <packaging>pom</packaging>
 
