@@ -1,6 +1,7 @@
 package com.ac.spring.gogo.trytry;
 
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -54,9 +55,39 @@ public class Test1 {
 //        l1.next = l2;
 //        ListNode1 listNode1 = deleteDuplicates(l1);
 //        System.out.println(listNode1);
-        int max = maxSubArray(new int[]{-2, 1});
+//        int max = maxSubArray(new int[]{-57,9,-72,-72,-62,45,-97,24,-39,35,-82,-4,-63,1,});
 //        int max = getMax(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}, 1);
-        System.out.println(max);
+//        System.out.println(max);
+//        System.out.println(10 % 10);
+        plusOne(new int[]{9});
+    }
+
+    public static int[] plusOne(int[] digits) {
+        if (digits == null || digits.length == 0) {
+            return digits;
+        }
+
+        int[] a1 = new int[digits.length + 1];
+        int t1 = 0;
+        for (int i = digits.length - 1; i >= 0; i--) {
+            if (i == digits.length - 1) {
+                a1[i + 1] = ++digits[i];
+            }
+            a1[i + 1] = digits[i] + t1 / 10;
+            t1 = digits[i];
+        }
+        int a2 = 0;
+        if (digits.length > 1) {
+            a2 = 1;
+        }
+        if (digits[a2] / 10 > 0) {
+            a1[1] = digits[a2] % 10;
+            a1[0] = 1;
+            return a1;
+        } else {
+            digits = Arrays.copyOfRange(a1, 1, a1.length);
+        }
+        return digits;
     }
 
     private static int getMax(int[] nums, int len) {
@@ -142,23 +173,6 @@ public class Test1 {
         }
     }
 
-    public static int[] plusOne(int[] digits) {
-        int t1 = 0;
-        if (digits[0] == 9) {
-            digits = new int[digits.length + 1];
-        }
-        for (int i = digits.length - 1; t1 / 10 > 0; i--) {
-            if (i == digits.length - 1) {
-                digits[i]++;
-            }
-            if (i < 0) {
-
-            }
-            digits[i] += t1 / 10;
-            t1 = digits[i];
-        }
-        return digits;
-    }
 
     public static int lengthOfLastWord(String s) {
         int a1 = s.lastIndexOf(" ");
