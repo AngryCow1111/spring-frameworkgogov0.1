@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="trytry" />
         <module name="common" />
         <module name="ioc-overview" />
         <module name="bean-lifecycle" />
@@ -13,12 +14,6 @@
         <module name="algorithm-try" />
         <module name="design-model" />
         <module name="spring-netty" />
-      </profile>
-      <profile name="Annotation profile for gogo" enabled="true">
-        <sourceOutputDir name="../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="trytry" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
