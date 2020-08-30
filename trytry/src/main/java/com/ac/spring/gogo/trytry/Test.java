@@ -38,7 +38,80 @@ public class Test {
     //        levelIterate(treeNode, new Stack<>());
     //    midIterate(treeNode, new Stack<>());
     //    sortedArrayToBST(new int[] {1, 23, 4});
-    System.out.println(getRow(3));
+    //    System.out.println(getRow(3));
+    //    maxProfit(new int[] {7, 1, 5, 3, 6, 4});
+    ListNode l1 = initListNode();
+    ListNode l2 = initListNode1();
+    addTwoNumbers(l1, l2);
+  }
+
+  public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    ListNode head = null;
+    ListNode l3 = null;
+    int new1 = 0;
+    int addLevel = 0;
+    int total = 0;
+    while (l1 != null && l2 != null) {
+
+      total = l1.val + l2.val;
+      if (head == null) {
+        new1 = total % 10;
+        addLevel = total / 10;
+
+        head = new ListNode(new1);
+        l3 = head;
+      } else {
+
+        if (addLevel == 1) {
+          total++;
+        }
+        new1 = total % 10;
+        ListNode head2 = new ListNode(new1);
+        addLevel = total / 10;
+        l3.next = head2;
+        l3 = l3.next;
+      }
+      l1 = l1.next;
+      l2 = l2.next;
+    }
+    while (l1 != null) {
+      total = l1.val + addLevel;
+      new1 = total % 10;
+      addLevel = total / 10;
+      ListNode head2 = new ListNode(new1);
+      l3.next = head2;
+      l3 = l3.next;
+      l1 = l1.next;
+    }
+
+    while (l2 != null) {
+      total = l2.val + addLevel;
+      new1 = total % 10;
+      addLevel = total / 10;
+      ListNode head2 = new ListNode(new1);
+      l3.next = head2;
+      l3 = l3.next;
+      l2 = l2.next;
+    }
+    if (addLevel == 1) {
+      ListNode head2 = new ListNode(1);
+      l3.next = head2;
+    }
+    return head;
+  }
+
+  public static int maxProfit(int[] prices) {
+    int min = prices[0], max = 0, max1 = 0;
+    for (int i = 1; i < prices.length; i++) {
+      if (max1 > (prices[i] - min)) {
+        min = prices[i];
+        max1 = 0;
+      } else {
+        max += (prices[i] - min);
+        max1 = (prices[i] - min);
+      }
+    }
+    return max;
   }
 
   public static List<Integer> getRow(int rowIndex) {
@@ -492,7 +565,27 @@ public class Test {
     }
   }
 
-  public static class TreeNode {
+  static ListNode initListNode() {
+
+    ListNode l3 = new ListNode(2);
+    ListNode l2 = new ListNode(7);
+    ListNode l1 = new ListNode(3);
+    l1.next = l2;
+    //    l2.next = l3;
+    return l1;
+  }
+
+  static ListNode initListNode1() {
+
+    ListNode l3 = new ListNode(9);
+    ListNode l2 = new ListNode(2);
+    ListNode l1 = new ListNode(9);
+    l1.next = l2;
+    //        l2.next = l3;
+    return l1;
+  }
+
+  static class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
