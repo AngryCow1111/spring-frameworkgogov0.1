@@ -40,9 +40,178 @@ public class Test {
     //    sortedArrayToBST(new int[] {1, 23, 4});
     //    System.out.println(getRow(3));
     //    maxProfit(new int[] {7, 1, 5, 3, 6, 4});
-    ListNode l1 = initListNode();
-    ListNode l2 = initListNode1();
-    addTwoNumbers(l1, l2);
+    //    ListNode l1 = initListNode();
+    //    ListNode l2 = initListNode1();
+    //    addTwoNumbers(l1, l2);
+    //    twoSum(new int[] {-1, 0}, -1);
+    //    String s = convertToTitle(1);
+
+    //    majorityElement(new int[] {1, 2, 1});
+    topKFrequent(new int[] {3, 0, 1, 0}, 1);
+  }
+
+  public static int[] twoSum(int[] numbers, int target) {
+    return binarySearch(numbers, target, 0, numbers.length - 1);
+  }
+
+  public static int[] topKFrequent(int[] nums, int k) {
+    Map<Integer, Integer> result = new LinkedHashMap();
+
+    for (int i = 0; i < nums.length; i++) {
+      int t1 = result.getOrDefault(nums[i], 0);
+      result.put(nums[i], ++t1);
+    }
+    ArrayList<Map.Entry<Integer, Integer>> entries = new ArrayList<>(result.entrySet());
+    Collections.sort(
+        entries,
+            (o1, o2) -> o2.getValue() - o1.getValue());
+    int[] r1 = new int[k];
+    int count = 0;
+    for (Map.Entry<Integer, Integer> integer : entries) {
+      if (count < k) {
+        r1[count] = integer.getKey();
+        count++;
+      }
+    }
+
+    return r1;
+  }
+
+  public static int majorityElement(int[] nums) {
+    Map<Integer, Integer> result = new HashMap();
+    int mar = nums[0];
+    int max = 1;
+    result.put(mar, 1);
+    for (int i = 1; i < nums.length; i++) {
+      int cur = result.get(nums[i]) == null ? 0 : result.get(nums[i]);
+
+      result.put(nums[i], ++cur);
+
+      if (max < cur) {
+        max = cur;
+        mar = nums[i];
+      }
+    }
+    return mar;
+  }
+
+  public static String convertToTitle(int n) {
+    StringBuilder sb = new StringBuilder();
+    if (n == 0) {
+      return sb.toString();
+    }
+    while (n > 25) {
+      int m = n % 26;
+    }
+    sb.append(getChar(n));
+    return sb.toString();
+  }
+
+  private static String getChar(int n) {
+    switch (n) {
+      case 1:
+        return "A";
+
+      case 2:
+        return "B";
+
+      case 3:
+        return "C";
+
+      case 4:
+        return "D";
+
+      case 5:
+        return "E";
+
+      case 6:
+        return "F";
+
+      case 7:
+        return "G";
+
+      case 8:
+        return "H";
+
+      case 9:
+        return "J";
+
+      case 10:
+        return "K";
+
+      case 11:
+        return "L";
+
+      case 12:
+        return "M";
+
+      case 13:
+        return "N";
+
+      case 14:
+        return "O";
+
+      case 15:
+        return "P";
+
+      case 16:
+        return "Q";
+
+      case 17:
+        return "R";
+
+      case 18:
+        return "S";
+
+      case 19:
+        return "T";
+
+      case 20:
+        return "U";
+
+      case 21:
+        return "V";
+
+      case 22:
+        return "W";
+
+      case 23:
+        return "X";
+
+      case 24:
+        return "Y";
+
+      case 25:
+        return "Z";
+    }
+    return null;
+  }
+
+  private static int[] binarySearch(int[] sourceData, int target, int left, int right) {
+    int mid = (left + right) / 2;
+    if (sourceData[mid] > target) {
+      return binarySearch(sourceData, target, left, mid + 1);
+    }
+    int t1 = left, t2 = left;
+
+    if (sourceData[right] <= target) {
+      mid = right;
+    }
+
+    int[] result = new int[2];
+
+    for (; t1 < mid; ) {
+      if (t2 > mid) {
+        t1++;
+      }
+      if (sourceData[t1] + sourceData[t2] == target) {
+        result[0] = ++t1;
+        result[1] = ++t2;
+        return result;
+      }
+      t2++;
+    }
+    return result;
   }
 
   public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
