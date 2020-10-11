@@ -1,6 +1,8 @@
 package com.ac.spring.gogo.trytry;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Test {
   public static void main(String[] args) {
@@ -47,7 +49,123 @@ public class Test {
     //    String s = convertToTitle(1);
 
     //    majorityElement(new int[] {1, 2, 1});
-    topKFrequent(new int[] {3, 0, 1, 0}, 1);
+    //    titleToNumber("AB");
+
+    //    rotate(new int[] {1, 2, 3, 4, 5, 6, 7}, 3);
+    //    intersect(new int[] {4, 9, 5}, new int[] {9, 4, 9, 8, 4});
+    //    maxSubArray1(new int[] {-2, 1, -3, 4, -1, 2, 1, -5, 4});
+    //    maxSubArray1(new int[] {-2, 1});
+//    firstUniqChar("leetcode");
+  }
+
+  public static int firstUniqChar(String s) {
+    for (int i = 0, j = s.length() - 1; i < j; ) {
+      if (s.charAt(i) == s.charAt(j)) {
+        i++;
+        j = s.length() - 1;
+      } else {
+        i++;
+        j--;
+        continue;
+      }
+    }
+    return -1;
+  }
+
+  public static int reverse(int x) {
+    char[] s1 = String.valueOf(x).toCharArray();
+    char t1 = '0';
+    for (int i = 0, j = s1.length - 1; i < j; i++, j--) {
+      t1 = s1[i];
+      s1[i] = s1[j];
+      s1[j] = t1;
+    }
+    String s = String.valueOf(s1);
+    int i = s.indexOf('-');
+
+    if (i == -1) {
+      Long t2 = Long.valueOf(s);
+      if (t2 > Integer.MAX_VALUE) {
+        return 0;
+      }
+      return t2.intValue();
+    }
+    s = s.substring(0, i);
+    Long t2 = Long.valueOf("-" + s);
+    if (t2 < Integer.MIN_VALUE) {
+      return 0;
+    }
+    return t2.intValue();
+  }
+
+  public static int maxSubArray1(int[] nums) {
+
+    if (nums.length == 1) {
+      return nums[0];
+    }
+    int max = nums[0];
+    for (int i = 1; i < nums.length; i++) {
+
+      max = Math.max(max, max + nums[i]);
+      max = Math.max(nums[i], max);
+    }
+    return max;
+  }
+
+  public static void rotate(int[][] matrix) {
+
+    for (int i = 0; i < matrix.length; i++) {
+      for (int j = 0; j < matrix.length - i; j++) {
+        swap(matrix, i, j, j, i);
+      }
+    }
+    for (int i = 0; i < matrix.length; i++) {
+      for (int j = 0; j < matrix.length - i; j++) {
+        swap(matrix, i, j, matrix.length - 1 - i, matrix.length - 1 - j);
+      }
+    }
+  }
+
+  private static void swap(
+      int[][] matrix, int srcPostionX, int srcPostionY, int destPostionX, int destPostionY) {
+    int t = matrix[srcPostionX][srcPostionY];
+    matrix[srcPostionX][srcPostionY] = matrix[destPostionX][destPostionY];
+    matrix[destPostionX][destPostionY] = t;
+  }
+
+  public static int[] intersect(int[] nums1, int[] nums2) {
+    List<Integer> l1 = IntStream.of(nums1).boxed().collect(Collectors.toList());
+    List<Integer> l2 = new ArrayList<>();
+    for (int i = 0; i < nums2.length; i++) {
+      if (l1.contains(nums2[i])) {
+        l1.remove(Integer.valueOf(nums2[i]));
+        l2.add(nums2[i]);
+      }
+    }
+    return l2.stream().mapToInt(Integer::valueOf).toArray();
+  }
+
+  public static void rotate(int[] nums, int k) {
+
+    for (int i = 1; i <= k; i++) {
+      int t3 = nums[0];
+      int t1 = 0;
+      for (int j = 0; j < nums.length; j++) {
+                 int t2 = (j + 1) % (nums.length);
+        t1 = nums[t2];
+        nums[t2] = t3;
+        t3 = t1;
+      }
+    }
+  }
+
+  public static int titleToNumber(String s) {
+    char[] s1 = s.toCharArray();
+    int r = 0;
+    for (int i = 0; i < s1.length; i++) {
+      r += Math.pow(26, (s1.length - 1 - i)) * (s1[i] - 'A' + 1);
+    }
+    return r;
   }
 
   public static int[] twoSum(int[] numbers, int target) {
@@ -62,9 +180,7 @@ public class Test {
       result.put(nums[i], ++t1);
     }
     ArrayList<Map.Entry<Integer, Integer>> entries = new ArrayList<>(result.entrySet());
-    Collections.sort(
-        entries,
-            (o1, o2) -> o2.getValue() - o1.getValue());
+    Collections.sort(entries, (o1, o2) -> o2.getValue() - o1.getValue());
     int[] r1 = new int[k];
     int count = 0;
     for (Map.Entry<Integer, Integer> integer : entries) {
