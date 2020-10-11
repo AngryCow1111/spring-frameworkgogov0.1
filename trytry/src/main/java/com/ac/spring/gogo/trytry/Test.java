@@ -55,7 +55,27 @@ public class Test {
     //    intersect(new int[] {4, 9, 5}, new int[] {9, 4, 9, 8, 4});
     //    maxSubArray1(new int[] {-2, 1, -3, 4, -1, 2, 1, -5, 4});
     //    maxSubArray1(new int[] {-2, 1});
-//    firstUniqChar("leetcode");
+    //    firstUniqChar("leetcode");
+    containsNearbyDuplicate(new int[] {1, 2, 3, 1, 2, 3}, 2);
+  }
+
+  public static boolean containsNearbyDuplicate(int[] nums, int k) {
+    // 用来存储最接近一次出现数据
+    Map<Integer, Integer> pool = new HashMap();
+    for (int i = 0; i < nums.length; i++) {
+      int temp = nums[i];
+      if (!pool.containsKey(temp)) {
+        pool.put(temp, i);
+        continue;
+      }
+      int index = pool.get(temp);
+      if (i - index > k) {
+        pool.put(temp, i);
+        continue;
+      }
+      return true;
+    }
+    return false;
   }
 
   public static int firstUniqChar(String s) {
@@ -151,7 +171,7 @@ public class Test {
       int t3 = nums[0];
       int t1 = 0;
       for (int j = 0; j < nums.length; j++) {
-                 int t2 = (j + 1) % (nums.length);
+        int t2 = (j + 1) % (nums.length);
         t1 = nums[t2];
         nums[t2] = t3;
         t3 = t1;
